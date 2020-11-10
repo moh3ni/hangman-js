@@ -9,26 +9,37 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <!-- Scripts -->
-    <script src="./assets/js/canvas.js" defer></script>
     <script src="./assets/js/country-list.js"></script>
     <script src="./assets/js/main.js" defer></script>
   </head>
   <body>
     <div class="wrapper">
       <header>
+        <img
+          src="./assets/images/hangman-logo.png"
+          alt="Scray Face"
+          class="scary-face"
+        />
         <h1>Hangman</h1>
       </header>
 
       <main>
         <div class="hangman">
-          <canvas id="hangman-container" width="300px" height="500px"></canvas>
+          <img
+            id="hangman-container"
+            src="./assets/images/hangman-0.png"
+            alt="Hangman 0"
+            width="670px"
+          />
+          <!-- <canvas id="hangman-container" width="350px" height="500px"></canvas> -->
         </div>
         <div class="info">
           <div class="info-container">
             <h2>Game Info</h2>
-            <p class="guesses"></p>
             <p class="score"></p>
+            <p class="guesses"></p>
             <p class="lost"></p>
+            <p class="total-words"></p>
           </div>
         </div>
         <div class="secretword"></div>

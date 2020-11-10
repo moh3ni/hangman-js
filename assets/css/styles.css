@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
   font-size: 10px;
 }
@@ -15,6 +20,7 @@ body {
   font-size: 1.6rem;
   color: #e8eddf;
   padding: 2rem;
+  position: relative;
 }
 
 body .wrapper {
@@ -36,14 +42,32 @@ header {
   -ms-grid-column-span: 2;
   grid-area: header;
   background-color: #333533;
-  padding: 0 2rem;
+  padding: 1rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .scary-face {
+  height: 5rem;
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  z-index: 99;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
 }
 
 header h1 {
   text-transform: uppercase;
-  padding: 2rem 0;
   color: #f5cb5c;
   letter-spacing: 0.4rem;
+  margin-left: 4rem;
+  font-size: 4rem;
 }
 
 main {
@@ -53,8 +77,10 @@ main {
   grid-area: main;
   display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
   grid-gap: 2rem;
-      grid-template-areas: 'hangman info' 'secretword secretword' 'keyboard keyboard';
+      grid-template-areas: "hangman info" "secretword secretword" "keyboard keyboard";
   padding: 0 2rem;
 }
 
@@ -69,6 +95,7 @@ main .hangman {
       -ms-flex-pack: center;
           justify-content: center;
   padding: 2rem 0;
+  position: relative;
 }
 
 main .info {
@@ -94,6 +121,10 @@ main .info {
 main .info .info-container {
   background-color: #333533;
   padding: 2rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 2px 3px #cfdbd5;
+          box-shadow: 0px 0px 2px 3px #cfdbd5;
+  font-size: 1.8rem;
 }
 
 main .info .info-container h2 {
@@ -103,6 +134,19 @@ main .info .info-container h2 {
 
 main .info .info-container p {
   padding: 1rem 0;
+}
+
+main .info .info-container .info-value {
+  font-weight: 600;
+  font-size: 2rem;
+  color: #f5cb5c;
+}
+
+main .info .info-container .total-words {
+  margin-top: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #f5cb5c;
+  text-align: center;
 }
 
 main .secretword {
@@ -122,6 +166,8 @@ main .secretword ul {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 main .secretword ul li {
@@ -135,9 +181,9 @@ main .secretword ul li {
       -ms-flex-align: center;
           align-items: center;
   font-size: 2.5rem;
-  padding: 2rem;
-  min-width: 7rem;
-  border: 1px solid #333533;
+  padding: 0 0.5rem;
+  margin: 0 1rem;
+  border-bottom: 2px solid #333533;
 }
 
 main .keyboard {
