@@ -1,0 +1,12 @@
+header {
+  grid-area: header;
+  background-color: $dark;
+  padding: 0 2rem;
+
+  h1 {
+    text-transform: uppercase;
+    padding: 2rem 0;
+    color: $yellow;
+    letter-spacing: 0.4rem;
+  }
+}

@@ -9,9 +9,33 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <!-- Scripts -->
+    <script src="./assets/js/canvas.js" defer></script>
+    <script src="./assets/js/country-list.js"></script>
     <script src="./assets/js/main.js" defer></script>
   </head>
   <body>
-    This is hangman
+    <div class="wrapper">
+      <header>
+        <h1>Hangman</h1>
+      </header>
+
+      <main>
+        <div class="hangman">
+          <canvas id="hangman-container" width="300px" height="500px"></canvas>
+        </div>
+        <div class="info">
+          <div class="info-container">
+            <h2>Game Info</h2>
+            <p class="guesses"></p>
+            <p class="score"></p>
+            <p class="lost"></p>
+          </div>
+        </div>
+        <div class="secretword"></div>
+        <div class="keyboard"></div>
+      </main>
+
+      <footer><p>Hangman by Zia Mohseni</p></footer>
+    </div>
   </body>
 </html>

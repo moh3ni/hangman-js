@@ -1,0 +1,22 @@
+.info {
+  grid-area: info;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 0;
+
+  .info-container {
+    background-color: $dark;
+    padding: 2rem;
+
+    h2 {
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      padding: 1rem 0;
+    }
+  }
+}

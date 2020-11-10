@@ -1,0 +1,39 @@
+// Varibles
+$dark: #333533;
+$darker: #242423;
+$light: #cfdbd5;
+$lighter: #e8eddf;
+$yellow: #f5cb5c;
+$white: #ffffff;
+$green: #29bf12;
+$red: #ee2e31;
+
+// Global style
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: $darker;
+  font-size: 1.6rem;
+  color: $lighter;
+  padding: 2rem;
+
+  .wrapper {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-rows: max-content auto max-content;
+    grid-template-columns: 1fr repeat(2, minmax(min-content, 60rem)) 1fr;
+    grid-template-areas:
+      ". header header ."
+      ". main main ."
+      ". footer footer .";
+  }
+}

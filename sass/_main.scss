@@ -1,0 +1,16 @@
+main {
+  grid-area: main;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-areas:
+    'hangman info'
+    'secretword secretword'
+    'keyboard keyboard';
+  padding: 0 2rem;
+
+  // Main parts
+  @import './hangman-side';
+  @import './info-side';
+  @import './secretword';
+  @import './keyboard';
+}
