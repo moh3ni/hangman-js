@@ -137,22 +137,20 @@ function checkGameStatus() {
 
 // Display Info
 function displayGameInfo() {
-  const totGuesses = document.querySelector(".guesses");
+  const totLives = document.querySelector(".lives-left");
   const score = document.querySelector(".score");
   const lost = document.querySelector(".lost");
-  const totWords = document.querySelector(".total-words");
 
   // display score
   score.innerHTML = `Score: <span class="info-value">${wonTheGame}</span>`;
 
   // display guesses
-  totGuesses.innerHTML = `Guesses: <span class="info-value">${wrongGuesses}</span> of <span class="info-value">${totalGuesses}</span>`;
+  totLives.innerHTML = `Lives: <span class="info-value">${
+    totalGuesses - wrongGuesses
+  }</span>`;
 
   // display lost
-  lost.innerHTML = `You have lost <span class="info-value">${lostTheGame}</span> time(s)`;
-
-  // display total number of words in the game
-  totWords.innerHTML = `Total of Words: <span class="info-value">${totalWords}</span>`;
+  lost.innerHTML = `Lost <span class="info-value">${lostTheGame}</span> time(s)`;
 }
 
 // Finaly Draw Hangman

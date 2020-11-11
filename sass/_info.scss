@@ -1,0 +1,47 @@
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .lives-left {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: url("../images/heart.svg");
+      width: 24px;
+      height: 24px;
+      margin-right: 1rem;
+    }
+  }
+
+  .score {
+    margin: 0 4rem;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: url("../images/target.svg");
+      width: 24px;
+      height: 24px;
+      margin-right: 1rem;
+    }
+  }
+
+  .lost {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: url("../images/lost.svg");
+      width: 24px;
+      height: 24px;
+      margin-right: 1rem;
+    }
+  }
+
+  .info-value {
+    margin: 0 0.5rem;
+    font-weight: bold;
+  }
+}

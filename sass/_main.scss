@@ -1,17 +1,12 @@
 main {
-  grid-area: main;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 2rem;
-  grid-template-areas:
-    "hangman info"
-    "secretword secretword"
-    "keyboard keyboard";
-  padding: 0 2rem;
+  grid-template-columns: 70rem;
+  grid-template-rows: minmax(5rem, auto) 29rem minmax(5rem, auto) auto;
+  grid-gap: 1rem;
 
   // Main parts
-  @import "./hangman-side";
-  @import "./info-side";
+  @import "./hangman";
+  @import "./info";
   @import "./secretword";
   @import "./keyboard";
 }

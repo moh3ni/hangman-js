@@ -14,39 +14,38 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- Header -->
       <header>
-        <img
-          src="./assets/images/hangman-logo.png"
-          alt="Scray Face"
-          class="scary-face"
-        />
-        <h1>Hangman</h1>
+        <img src="./assets/images/hangman-logo.svg" alt="Logo" width="290px" />
+        <p>Guess Country Names</p>
       </header>
 
+      <!-- Main Conten -->
       <main>
+        <!-- Informations -->
+        <div class="info">
+          <p class="lives-left"></p>
+          <p class="score"></p>
+          <p class="lost"></p>
+        </div>
+        <!-- Hangman -->
         <div class="hangman">
           <img
             id="hangman-container"
             src="./assets/images/hangman-0.png"
             alt="Hangman 0"
-            width="670px"
           />
-          <!-- <canvas id="hangman-container" width="350px" height="500px"></canvas> -->
         </div>
-        <div class="info">
-          <div class="info-container">
-            <h2>Game Info</h2>
-            <p class="score"></p>
-            <p class="guesses"></p>
-            <p class="lost"></p>
-            <p class="total-words"></p>
-          </div>
-        </div>
-        <div class="secretword"></div>
-        <div class="keyboard"></div>
+        <!-- Secret Word -->
+        <div class="secretword">secret</div>
+        <!-- Keyboard -->
+        <div class="keyboard">keyboard</div>
       </main>
 
-      <footer><p>Hangman by Zia Mohseni</p></footer>
+      <!-- Footer -->
+      <footer>
+        <p>© Hangman Game in vanilla JavaScript by Zia Mohseni</p>
+      </footer>
     </div>
   </body>
 </html>

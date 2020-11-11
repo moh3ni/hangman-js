@@ -1,26 +1,13 @@
 header {
-  grid-area: header;
-  background-color: $dark;
-  padding: 1rem 2rem;
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+  padding: 1rem;
 
-  .scary-face {
-    height: 5rem;
-    transform: scale(2);
-    z-index: 99;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  h1 {
+  p {
+    margin-top: 1rem;
     text-transform: uppercase;
-    color: $yellow;
-    letter-spacing: 0.4rem;
-    margin-left: 4rem;
-    font-size: 4rem;
+    color: #025d8f;
   }
-
-  // &:hover .scary-face {
-  //   transform: scale(30) translate(40%, 30%);
-  // }
 }

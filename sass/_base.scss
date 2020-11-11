@@ -4,12 +4,19 @@ $darker: #242423;
 $light: #cfdbd5;
 $lighter: #e8eddf;
 $yellow: #f5cb5c;
+
+$blue-dark: #004e79;
+$blue-light: #0383cb;
+$blue-lighter: #008fdf;
 $white: #ffffff;
+$black: #000000;
 $green: #29bf12;
 $red: #ee2e31;
 
 // Global style
-* {
+*,
+::before,
+::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,20 +33,16 @@ html {
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: $darker;
   font-size: 1.6rem;
-  color: $lighter;
-  padding: 2rem;
-  position: relative;
+  background: linear-gradient(180deg, #0383cb 0%, #008fdf 48.34%, #004e79 100%);
 
   .wrapper {
     display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: max-content auto max-content;
-    grid-template-columns: 1fr repeat(2, minmax(min-content, 60rem)) 1fr;
-    grid-template-areas:
-      ". header header ."
-      ". main main ."
-      ". footer footer .";
+    justify-content: center;
+    align-content: flex-start;
+    min-height: 100vh;
+    padding-top: 10vh;
+    grid-template-columns: 70rem;
+    grid-template-rows: minmax(7rem, auto) auto 4rem;
   }
 }
