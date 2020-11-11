@@ -5,20 +5,28 @@
  ***********************/
 const words = ["html", "css", "javascript", "react", "react native"];
 const keyboard = document.querySelector(".keyboard");
-let secretWord = "";
-let guessedSecretWord = "";
-let guessedAlphabets = [];
-let totalGuesses = 10;
-let wrongGuesses = 0;
+const wonGameContainer = document.querySelector(".won-game");
+const lostGameContainer = document.querySelector(".lost-game");
+const continueBtn = document.querySelectorAll(".continue-btn");
+const resetBtn = document.querySelectorAll(".reset-btn");
+let secretWord;
+let guessedSecretWord;
+let guessedAlphabets;
+let totalGuesses;
+let wrongGuesses;
 const totalWords = country_list.length;
-let wonTheGame = 0;
-let lostTheGame = 0;
+let wonTheGame;
+let lostTheGame;
 
 /***********************
  *** EVENT LISTENERS ***
  ***********************/
 // Keyboard press
 keyboard.addEventListener("click", handleKeyPressed);
+continueBtn.forEach((button) =>
+  button.addEventListener("click", continueTheGame)
+);
+resetBtn.forEach((button) => button.addEventListener("click", resetTheGame));
 
 /***********************
  ***** FUNCTIONS *******
@@ -89,19 +97,15 @@ function generateKeyboard() {
 // Keyboard press
 function handleKeyPressed(e) {
   const keyValue = e.target.getAttribute("value");
-  console.log(keyValue);
 
   if (keyValue) {
     guessedAlphabets.push(keyValue);
     handleGuessedWord();
     disableBtn(keyValue);
+    checkGameStatus();
   }
 
-  checkGameStatus();
   displayGameInfo();
-
-  console.log(guessedAlphabets);
-  console.log(wrongGuesses);
 }
 
 // Handle disabling buttons
@@ -124,14 +128,16 @@ function disableBtn(keyValue) {
 function checkGameStatus() {
   // Won the Game
   if (secretWord.toLowerCase() === guessedSecretWord.toLowerCase()) {
-    console.log("You won!");
     wonTheGame++;
+    keyboard.classList.add("display-none");
+    wonGameContainer.classList.remove("display-none");
   }
 
   // Lost the Game
   if (wrongGuesses === totalGuesses) {
-    console.log("You lost the game!");
     lostTheGame++;
+    keyboard.classList.add("display-none");
+    lostGameContainer.classList.remove("display-none");
   }
 }
 
@@ -153,7 +159,7 @@ function displayGameInfo() {
   lost.innerHTML = `Lost <span class="info-value">${lostTheGame}</span> time(s)`;
 }
 
-// Finaly Draw Hangman
+// Draw Hangman
 function drawHangman() {
   const hangmanContainer = document.querySelector("#hangman-container");
   const hangmanImgUrl = "./assets/images/";
@@ -165,14 +171,46 @@ function drawHangman() {
   );
 }
 
+// Reset Keyboard
+function resetKeyboard() {
+  keyboard.classList.remove("display-none");
+  wonGameContainer.classList.add("display-none");
+  lostGameContainer.classList.add("display-none");
+}
+
+// Continue Game
+function continueTheGame() {
+  guessedAlphabets = [];
+  wrongGuesses = 0;
+  randomWord();
+  generateKeyboard();
+  handleGuessedWord();
+  displayGameInfo();
+  drawHangman();
+  resetKeyboard();
+}
+
+// Reset Game
+function resetTheGame() {
+  init();
+}
+
 // Init Hangman
 function init() {
+  secretWord = "";
+  guessedSecretWord = "";
+  guessedAlphabets = [];
+  totalGuesses = 10;
+  wrongGuesses = 0;
+  wonTheGame = 0;
+  lostTheGame = 0;
   generateKeyboard();
   randomWord();
   handleGuessedWord();
   displayGameInfo();
+  drawHangman();
+  resetKeyboard();
 }
 
 // Initializing the Game
 init();
-console.log(secretWord);

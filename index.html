@@ -37,9 +37,41 @@
           />
         </div>
         <!-- Secret Word -->
-        <div class="secretword">secret</div>
-        <!-- Keyboard -->
-        <div class="keyboard">keyboard</div>
+        <div class="secretword"></div>
+        <!-- Keyboard Container -->
+        <div class="keyboard-container">
+          <!-- Keyboard -->
+          <div class="keyboard"></div>
+          <!-- Won the Game Message -->
+          <div class="won-game display-none">
+            <h1>Congratulations!</h1>
+            <img
+              src="./assets/images/fire-cracker.svg"
+              alt="Fire Cracker"
+              width="100px"
+            />
+            <p>
+              Excelent job! You guessed the country name right. You can continue
+              the game or reset the game.
+            </p>
+            <div class="btn-container">
+              <button class="reset-btn">Reset</button>
+              <button class="continue-btn">Continue</button>
+            </div>
+          </div>
+          <!-- Lost the Game Message -->
+          <div class="lost-game display-none">
+            <h1>You suck!</h1>
+            <p>
+              But don't worry! Failure is the mother of success. JUST FAIL!
+              EVERY TIME! JUST LIKE THAT :).
+            </p>
+            <div class="btn-container">
+              <button class="reset-btn">Reset</button>
+              <button class="continue-btn">Continue</button>
+            </div>
+          </div>
+        </div>
       </main>
 
       <!-- Footer -->

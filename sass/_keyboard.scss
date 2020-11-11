@@ -1,79 +1,155 @@
-.keyboard {
+.keyboard-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: rgba($color: $white, $alpha: 0.35);
   border-radius: 1rem;
   padding: 2rem;
 
-  ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+  .keyboard {
+    ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-wrap: wrap;
 
-    li {
-      button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 2.5rem;
-        color: $black;
-        font-weight: 600;
-        padding: 1rem;
-        margin: 0.5rem;
-        background-color: rgba($color: $white, $alpha: 0.8);
-        border: none;
-        outline: none;
-        border-radius: 0.5rem;
-        width: 6rem;
-        cursor: pointer;
-        transition: box-shadow 0.05s ease-out;
-
-        &:focus {
-          outline: none;
-        }
-
-        &:hover {
-          box-shadow: 0px 0px 1px 2px $black;
+      li {
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 2.5rem;
+          color: $black;
           font-weight: 600;
+          padding: 1rem;
+          margin: 0.5rem;
+          background-color: rgba($color: $white, $alpha: 0.8);
+          outline: none;
+          border: 1px solid transparent;
+          border-radius: 0.5rem;
+          width: 6rem;
+          cursor: pointer;
+          transition: box-shadow 0.05s ease-out;
+
+          &:focus {
+            outline: none;
+          }
+
+          &:hover {
+            box-shadow: 0px 0px 1px 2px $black;
+            font-weight: 600;
+          }
+
+          &:active {
+            box-shadow: 0px 0px 1px 2px $black;
+          }
         }
 
-        &:active {
-          box-shadow: 0px 0px 1px 2px $black;
-        }
-      }
-
-      .right-guess {
-        box-shadow: 0px 0px 2px 3px $green;
-        cursor: default;
-        background-color: rgba($color: $white, $alpha: 0.8);
-        color: $green;
-        font-weight: normal;
-        transform: scale(0.9);
-
-        &:hover {
+        .right-guess {
+          border: 1px solid $dark;
           box-shadow: 0px 0px 2px 3px $green;
+          cursor: default;
+          background-color: rgba($color: $white, $alpha: 0.8);
+          color: $green;
           font-weight: normal;
           transform: scale(0.9);
+
+          &:hover {
+            box-shadow: 0px 0px 2px 3px $green;
+            font-weight: normal;
+            transform: scale(0.9);
+          }
         }
-      }
 
-      .wrong-guess {
-        box-shadow: 0px 0px 2px 3px $red;
-        cursor: default;
-        background-color: rgba($color: $white, $alpha: 0.8);
-        color: $red;
-        font-weight: normal;
-        transform: scale(0.9);
-
-        &:hover {
+        .wrong-guess {
+          border: 1px solid $dark;
           box-shadow: 0px 0px 2px 3px $red;
+          cursor: default;
+          background-color: rgba($color: $white, $alpha: 0.8);
+          color: $red;
           font-weight: normal;
-          transform: none;
           transform: scale(0.9);
+
+          &:hover {
+            box-shadow: 0px 0px 2px 3px $red;
+            font-weight: normal;
+            transform: none;
+            transform: scale(0.9);
+          }
         }
       }
     }
+  }
+
+  .won-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img {
+      margin: 1rem 0;
+    }
+
+    p {
+      text-align: center;
+      padding: 0 2rem;
+      line-height: 3rem;
+    }
+  }
+
+  .lost-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+      padding: 1rem 2rem;
+      line-height: 3rem;
+    }
+  }
+
+  // Button style
+  .btn-container {
+    margin: 1rem 0;
+
+    button {
+      outline: none;
+      border: none;
+      padding: 1rem 2rem;
+      color: $white;
+      background-color: rgba($color: $blue-light, $alpha: 0.8);
+      cursor: pointer;
+      border-radius: 1rem;
+      margin: 0 0.5rem;
+
+      &:hover {
+        box-shadow: 0px 2px 0px 1px $white;
+      }
+
+      &:active {
+        box-shadow: 0px 1px 0px 1px $white;
+      }
+    }
+
+    .continue-btn {
+      &:hover {
+        background-color: rgba($color: $green, $alpha: 0.8);
+      }
+    }
+
+    .reset-btn {
+      &:hover {
+        background-color: rgba($color: $red, $alpha: 0.8);
+      }
+    }
+  }
+
+  .display-none {
+    display: none !important;
   }
 }
