@@ -45,4 +45,11 @@ body {
     grid-template-columns: 70rem;
     grid-template-rows: minmax(7rem, auto) auto 4rem;
   }
+
+  .hangman-guy {
+    position: fixed;
+    bottom: 0;
+    left: -40px;
+    transform: rotate(45deg);
+  }
 }

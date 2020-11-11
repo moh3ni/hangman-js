@@ -39,6 +39,14 @@ body .wrapper {
       grid-template-rows: minmax(7rem, auto) auto 4rem;
 }
 
+body .hangman-guy {
+  position: fixed;
+  bottom: 0;
+  left: -40px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
