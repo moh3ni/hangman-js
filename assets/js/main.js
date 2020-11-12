@@ -109,7 +109,7 @@ function handleKeyPressed(event) {
   if (eventValue && justAlphabets && !guessedAlphabets.includes(eventValue)) {
     guessedAlphabets.push(eventValue);
     handleGuessedWord();
-    disableBtn(eventValue);
+    handleDisablingKeyboard(eventValue);
     checkGameStatus();
   }
 
@@ -117,18 +117,20 @@ function handleKeyPressed(event) {
 }
 
 // Handle disabling buttons
-function disableBtn(keyValue) {
+function handleDisablingKeyboard(keyValue) {
   const btn = document.querySelector(`.btn-${keyValue}`);
   const secretWordArray = secretWord.split("");
 
   if (secretWordArray.includes(keyValue)) {
     btn.disabled = true;
     btn.classList.add("right-guess");
+    changeHangmanGuyColor(true);
   } else {
     btn.disabled = true;
     btn.classList.add("wrong-guess");
     wrongGuesses++;
     drawHangman();
+    changeHangmanGuyColor(false);
   }
 }
 
@@ -202,6 +204,17 @@ function lostGameHeadingMsg() {
   lostGameHeading.innerHTML = lostGameHeadingMsg;
 }
 
+// Hangman Guy on the side
+function changeHangmanGuyColor(rightGuess) {
+  const hangmanImg = document.querySelector(".hangman-guy-img");
+
+  if (rightGuess) {
+    hangmanImg.setAttribute("src", "./assets/images/hangman-guy-green.png");
+  } else {
+    hangmanImg.setAttribute("src", "./assets/images/hangman-guy-red.png");
+  }
+}
+
 // Reset Keyboard
 function resetKeyboard() {
   keyboard.classList.remove("display-none");
@@ -219,6 +232,7 @@ function continueTheGame() {
   displayGameInfo();
   drawHangman();
   resetKeyboard();
+  changeHangmanGuyColor(true);
 }
 
 // Reset Game
@@ -241,6 +255,7 @@ function init() {
   displayGameInfo();
   drawHangman();
   resetKeyboard();
+  changeHangmanGuyColor(true);
 }
 
 // Initializing the Game
