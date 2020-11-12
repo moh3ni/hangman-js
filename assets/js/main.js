@@ -3,7 +3,7 @@
 /***********************
  ** GLOBAL VARIABLES ***
  ***********************/
-const words = ["html", "css", "javascript", "react", "react native"];
+const alphabets = "abcdefghijklmnopqrstuvwxyz";
 const keyboard = document.querySelector(".keyboard");
 const wonGameContainer = document.querySelector(".won-game");
 const lostGameContainer = document.querySelector(".lost-game");
@@ -21,12 +21,20 @@ let lostTheGame;
 /***********************
  *** EVENT LISTENERS ***
  ***********************/
-// Keyboard press
+// Generated Keyboard Press
 keyboard.addEventListener("click", handleKeyPressed);
+
+// Continue and Reset buttons
 continueBtn.forEach((button) =>
   button.addEventListener("click", continueTheGame)
 );
 resetBtn.forEach((button) => button.addEventListener("click", resetTheGame));
+
+// Keyboard
+document.addEventListener("keyup", (event) => {
+  const key = event.key;
+  handleKeyPressed(key);
+});
 
 /***********************
  ***** FUNCTIONS *******
@@ -82,8 +90,6 @@ function displayRandomWord() {
 
 // Generate and display keyboard
 function generateKeyboard() {
-  const alphabets = "abcdefghijklmnopqrstuvwxyz";
-
   const keyboardAlphabets = alphabets
     .split("")
     .map(
@@ -95,10 +101,11 @@ function generateKeyboard() {
 }
 
 // Keyboard press
-function handleKeyPressed(e) {
-  const keyValue = e.target.getAttribute("value");
+function handleKeyPressed(key) {
+  const justAlphabets = alphabets.split("").includes(key);
+  const keyValue = key.type == "click" ? key.target.getAttribute("value") : key;
 
-  if (keyValue) {
+  if (keyValue && justAlphabets) {
     guessedAlphabets.push(keyValue);
     handleGuessedWord();
     disableBtn(keyValue);
