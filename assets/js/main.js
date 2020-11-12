@@ -101,14 +101,15 @@ function generateKeyboard() {
 }
 
 // Keyboard press
-function handleKeyPressed(key) {
-  const justAlphabets = alphabets.split("").includes(key);
-  const keyValue = key.type == "click" ? key.target.getAttribute("value") : key;
+function handleKeyPressed(event) {
+  const eventValue =
+    event.type == "click" ? event.target.getAttribute("value") : event;
+  const justAlphabets = alphabets.split("").includes(eventValue);
 
-  if (keyValue && justAlphabets) {
-    guessedAlphabets.push(keyValue);
+  if (eventValue && justAlphabets && !guessedAlphabets.includes(eventValue)) {
+    guessedAlphabets.push(eventValue);
     handleGuessedWord();
-    disableBtn(keyValue);
+    disableBtn(eventValue);
     checkGameStatus();
   }
 
@@ -163,7 +164,9 @@ function displayGameInfo() {
   }</span>`;
 
   // display lost
-  lost.innerHTML = `Lost <span class="info-value">${lostTheGame}</span> time(s)`;
+  lost.innerHTML = `Lost <span class="info-value">${lostTheGame}</span> ${
+    lostTheGame >= 2 ? "times" : "time"
+  }`;
 }
 
 // Draw Hangman
