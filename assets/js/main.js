@@ -146,6 +146,7 @@ function checkGameStatus() {
     lostTheGame++;
     keyboard.classList.add("display-none");
     lostGameContainer.classList.remove("display-none");
+    lostGameHeadingMsg();
   }
 }
 
@@ -179,6 +180,26 @@ function drawHangman() {
     "src",
     `${hangmanImgUrl}hangman-${wrongGuesses}.png`
   );
+}
+
+// Lost Game Heading Msg
+function lostGameHeadingMsg() {
+  const lostGameHeading = document.querySelector(".lost-game-heading");
+  let lostGameHeadingMsg;
+
+  if (lostTheGame >= 30) {
+    lostGameHeadingMsg = `You Hanged Him ${lostTheGame} times!`;
+  } else if (lostTheGame >= 20) {
+    lostGameHeadingMsg = "Wow, You Can Nothing!";
+  } else if (lostTheGame >= 10) {
+    lostGameHeadingMsg = "You Really Suck!";
+  } else if (lostTheGame >= 5) {
+    lostGameHeadingMsg = "You Suck!";
+  } else {
+    lostGameHeadingMsg = "Ooh No!";
+  }
+
+  lostGameHeading.innerHTML = lostGameHeadingMsg;
 }
 
 // Reset Keyboard
