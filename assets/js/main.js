@@ -103,7 +103,9 @@ function generateKeyboard() {
 // Keyboard press
 function handleKeyPressed(event) {
   const eventValue =
-    event.type == "click" ? event.target.getAttribute("value") : event;
+    event.type == "click"
+      ? event.target.getAttribute("value")
+      : event.toLowerCase();
   const justAlphabets = alphabets.split("").includes(eventValue);
 
   if (eventValue && justAlphabets && !guessedAlphabets.includes(eventValue)) {
