@@ -107,10 +107,15 @@ function handleKeyPressed(event) {
   const justAlphabets = alphabets.split("").includes(eventValue);
 
   if (eventValue && justAlphabets && !guessedAlphabets.includes(eventValue)) {
-    guessedAlphabets.push(eventValue);
-    handleGuessedWord();
-    handleDisablingKeyboard(eventValue);
-    checkGameStatus();
+    if (
+      secretWord.toLowerCase() !== guessedSecretWord.toLowerCase() &&
+      wrongGuesses !== totalGuesses
+    ) {
+      guessedAlphabets.push(eventValue);
+      handleGuessedWord();
+      handleDisablingKeyboard(eventValue);
+      checkGameStatus();
+    }
   }
 
   displayGameInfo();
