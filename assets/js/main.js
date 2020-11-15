@@ -40,14 +40,14 @@ document.addEventListener("keyup", (event) => {
  ***** FUNCTIONS *******
  ***********************/
 // Generate Random Word
-function randomWord() {
+const randomWord = () => {
   secretWord = country_list[
     Math.floor(Math.random() * country_list.length)
   ].toLowerCase();
-}
+};
 
 // Handle the Random Word :)
-function handleGuessedWord() {
+const handleGuessedWord = () => {
   guessedSecretWord = secretWord
     .split("")
     .map((letter) => {
@@ -68,10 +68,10 @@ function handleGuessedWord() {
     .join("");
 
   displayRandomWord();
-}
+};
 
 // Display the Random Word
-function displayRandomWord() {
+const displayRandomWord = () => {
   const secretWordContainer = document.querySelector(".secretword");
 
   const formatedWord = guessedSecretWord
@@ -86,10 +86,10 @@ function displayRandomWord() {
     .join("");
 
   secretWordContainer.innerHTML = `<ul>${formatedWord}</ul>`;
-}
+};
 
 // Generate and display keyboard
-function generateKeyboard() {
+const generateKeyboard = () => {
   const keyboardAlphabets = alphabets
     .split("")
     .map(
@@ -98,7 +98,7 @@ function generateKeyboard() {
     )
     .join("");
   keyboard.innerHTML = `<ul>${keyboardAlphabets}</ul>`;
-}
+};
 
 // Keyboard press
 function handleKeyPressed(event) {
@@ -124,7 +124,7 @@ function handleKeyPressed(event) {
 }
 
 // Handle disabling buttons
-function handleDisablingKeyboard(keyValue) {
+const handleDisablingKeyboard = (keyValue) => {
   const btn = document.querySelector(`.btn-${keyValue}`);
   const secretWordArray = secretWord.split("");
 
@@ -139,10 +139,10 @@ function handleDisablingKeyboard(keyValue) {
     drawHangman();
     changeHangmanGuyColor(false);
   }
-}
+};
 
 // Check Game Status
-function checkGameStatus() {
+const checkGameStatus = () => {
   // Won the Game
   if (secretWord.toLowerCase() === guessedSecretWord.toLowerCase()) {
     wonTheGame++;
@@ -157,10 +157,10 @@ function checkGameStatus() {
     lostGameContainer.classList.remove("display-none");
     lostGameHeadingMsg();
   }
-}
+};
 
 // Display Info
-function displayGameInfo() {
+const displayGameInfo = () => {
   const totLives = document.querySelector(".lives-left");
   const score = document.querySelector(".score");
   const lost = document.querySelector(".lost");
@@ -177,10 +177,10 @@ function displayGameInfo() {
   lost.innerHTML = `Lost <span class="info-value">${lostTheGame}</span> ${
     lostTheGame >= 2 ? "times" : "time"
   }`;
-}
+};
 
 // Draw Hangman
-function drawHangman() {
+const drawHangman = () => {
   const hangmanContainer = document.querySelector("#hangman-container");
   const hangmanImgUrl = "./assets/images/";
 
@@ -189,10 +189,10 @@ function drawHangman() {
     "src",
     `${hangmanImgUrl}hangman-${wrongGuesses}.png`
   );
-}
+};
 
 // Lost Game Heading Msg
-function lostGameHeadingMsg() {
+const lostGameHeadingMsg = () => {
   const lostGameHeading = document.querySelector(".lost-game-heading");
   let lostGameHeadingMsg;
 
@@ -209,10 +209,10 @@ function lostGameHeadingMsg() {
   }
 
   lostGameHeading.innerHTML = lostGameHeadingMsg;
-}
+};
 
 // Hangman Guy on the side
-function changeHangmanGuyColor(rightGuess) {
+const changeHangmanGuyColor = (rightGuess) => {
   const hangmanImg = document.querySelector(".hangman-guy-img");
 
   if (rightGuess) {
@@ -220,14 +220,14 @@ function changeHangmanGuyColor(rightGuess) {
   } else {
     hangmanImg.setAttribute("src", "./assets/images/hangman-guy-red.png");
   }
-}
+};
 
 // Reset Keyboard
-function resetKeyboard() {
+const resetKeyboard = () => {
   keyboard.classList.remove("display-none");
   wonGameContainer.classList.add("display-none");
   lostGameContainer.classList.add("display-none");
-}
+};
 
 // Continue Game
 function continueTheGame() {
